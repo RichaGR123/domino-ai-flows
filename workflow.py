@@ -52,7 +52,7 @@ training_task = DominoJobTask(
 def training_workflow(data_patha: str, data_pathb: str) -> FlyteFile:
     
      # Run the data Merge task
-    data_merge_task = data_merge_task(data_patha=data_patha, data_pathb=data_pathb)
+    data_merge_results = data_merge_task(data_patha=data_patha, data_pathb=data_pathb)
     
     # Run the data preparation task
     data_prep_results = data_prep_task(data_path=data_path)
