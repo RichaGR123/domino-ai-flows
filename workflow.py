@@ -14,7 +14,7 @@ data_merge_task = DominoJobTask(
     hardware_tier_name="Small",
     inputs={
         "data_patha": str,
-        "data_pathb": str
+        "data_pathb": str,
     },
     outputs={"merged_data": FlyteFile["csv"]},
     #use_project_defaults_for_omitted=True,
@@ -49,7 +49,7 @@ training_task = DominoJobTask(
 
 # Define the workflow
 @workflow
-def training_workflow(data_pathA: str, data_pathB: str) -> FlyteFile:
+def training_workflow(data_patha: str, data_pathb: str) -> FlyteFile:
     
      # Run the data Merge task
     data_merge_task = data_merge_task(data_patha=data_patha, data_pathb=data_pathb)
