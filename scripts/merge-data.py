@@ -20,6 +20,7 @@ print('Merging data...')
 merged = pd.concat([a, b], axis=0).reset_index(drop=True)
 
 # Write output
-output_path = '/workflow/outputs/merged_data.csv'
+#output_path = '/workflow/outputs/merged_data.csv'
+output_path = '/mnt/code/outputs/merged_data.csv'
 merged.to_csv(output_path, index=False)
 print(f"Merged data saved to: {output_path}")
