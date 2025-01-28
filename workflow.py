@@ -7,6 +7,36 @@ from flytekit.types.file import FlyteFile
 
 # Define the Domino tasks
 
+data_load_taskA = DominoJobTask(
+    name='Load Data A'
+    domino_job_config=DominoJobConfig(
+         Command='python /mnt/code/scripts/load-data-A.py',,
+    ),
+    environment_name="Domino Standard Environment Py3.11 R4.4",
+    hardware_tier_name="Small",
+    
+    inputs={
+        "data_patha": FlyteFile["csv"],
+    },
+    outputs={"datasetA": FlyteFile["csv"]},
+    use_latest=True
+)
+
+data_load_taskB = DominoJobTask(
+    name='Load Data B'
+    domino_job_config=DominoJobConfig(
+         Command='python /mnt/code/scripts/load-data-B.py',,
+    ),
+    environment_name="Domino Standard Environment Py3.11 R4.4",
+    hardware_tier_name="Small",
+    
+    inputs={
+        "data_pathb": FlyteFile["csv"],
+    },
+    outputs={"datasetB": FlyteFile["csv"]},
+    use_latest=True
+)
+
 data_merge_task = DominoJobTask(
     name="merge_data",
     domino_job_config=DominoJobConfig(
