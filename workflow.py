@@ -96,6 +96,9 @@ training_task = DominoJobTask(
 def training_workflow(data_patha: FlyteFile, data_pathb: FlyteFile) -> FlyteFile:
 #def training_workflow(data_patha="/mnt/data/datasetA.csv", data_pathb="/mnt/data/datasetB.csv") -> FlyteFile:
     
+    #data_load_taskA
+    data_load_A = data_load_taskA(data_patha=data_patha)
+    data_load_B = data_load_taskB(data_pathb=data_pathb)
      # Run the data Merge task
     data_merge_results = data_merge_task(data_patha=data_patha, data_pathb=data_pathb)
     #data_merge_results = data_merge_task(data_patha="/mnt/code/data/datasetA.csv", data_pathb="/mnt/code/data/datasetB.csv")
