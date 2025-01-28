@@ -1,21 +1,22 @@
-import os
+import sys
 import pandas as pd
 
-# Read inputs
-named_input_1 = "datasetA"
-datasetA_path = "/workflow/inputs/{}".format(named_input_1)
-
-named_input_2 = "datasetB"
-datasetB_path = "/workflow/inputs/{}".format(named_input_2)
+# Read inputs from command-line arguments
+datasetA_path = sys.argv[1]
+datasetB_path = sys.argv[2]
 
 # Load data
-a = pd.read_csv(datasetA_path, index_col='Id') 
-b = pd.read_csv(datasetB_path, index_col='Id') 
+print(f"Loading dataset A from: {datasetA_path}")
+a = pd.read_csv(datasetA_path, index_col='Id')
+
+print(f"Loading dataset B from: {datasetB_path}")
+b = pd.read_csv(datasetB_path, index_col='Id')
 
 # Merge data
 print('Merging data...')
-merged = pd.concat([a, a], axis=0).reset_index(drop=True)
-print(merged)
+merged = pd.concat([a, b], axis=0).reset_index(drop=True)
 
 # Write output
-merged.to_csv('/workflow/outputs/merged_data.csv', index=False)
+output_path = '/workflow/outputs/merged_data.csv'
+merged.to_csv(output_path, index=False)
+print(f"Merged data saved to: {output_path}")
