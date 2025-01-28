@@ -6,6 +6,21 @@ from flytekitplugins.domino.task import DominoJobConfig, DominoJobTask
 from flytekit.types.file import FlyteFile
 
 # Define the Domino tasks
+
+data_merge_task = DominoJobTask(
+    name="merge_data",
+    domino_job_config=DominoJobConfig(Command="python /mnt/code/scripts/merge-data.py"),
+    environment_name="Domino Standard Environment Py3.11 R4.4",
+    hardware_tier_name="Small",
+    inputs={
+        "data_pathA": str
+        "data_pathB": str
+    },
+    outputs={"merged_data": FlyteFile["csv"]},
+    #use_project_defaults_for_omitted=True,
+    use_latest=True
+)
+
 data_prep_task = DominoJobTask(
     name="prepare_data",
     domino_job_config=DominoJobConfig(Command="python /mnt/code/scripts/process-data.py"),
@@ -34,7 +49,11 @@ training_task = DominoJobTask(
 
 # Define the workflow
 @workflow
-def training_workflow(data_path: str) -> FlyteFile:
+def training_workflow(data_pathA: str, data_pathB: str) -> FlyteFile:
+    
+     # Run the data Merge task
+    data_merge_task = data_merge_task(data_pathA=data_pathA, data_pathB=data_pathB)
+    
     # Run the data preparation task
     data_prep_results = data_prep_task(data_path=data_path)
     
