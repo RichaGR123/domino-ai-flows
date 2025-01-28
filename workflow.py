@@ -13,7 +13,7 @@ data_merge_task = DominoJobTask(
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
     inputs={
-        "data_pathA": str
+        "data_pathA": str,
         "data_pathB": str
     },
     outputs={"merged_data": FlyteFile["csv"]},
