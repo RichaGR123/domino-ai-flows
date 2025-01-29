@@ -8,7 +8,7 @@ from flytekit.types.file import FlyteFile
 # Define the Domino tasks
 
 data_load_taskA = DominoJobTask(
-    name='Load Data A'
+    name='Load_Data_A'
     domino_job_config=DominoJobConfig(
          Command='python /mnt/code/scripts/load-data-A.py',,
     ),
@@ -23,7 +23,7 @@ data_load_taskA = DominoJobTask(
 )
 
 data_load_taskB = DominoJobTask(
-    name='Load Data B'
+    name='Load_Data_B'
     domino_job_config=DominoJobConfig(
          Command='python /mnt/code/scripts/load-data-B.py',,
     ),
@@ -40,7 +40,7 @@ data_load_taskB = DominoJobTask(
 data_merge_task = DominoJobTask(
     name="merge_data",
     domino_job_config=DominoJobConfig(
-         Command="python /mnt/code/scripts/merge-data.py {data_patha} {data_pathb}",
+         Command="python /mnt/code/scripts/merge-data.py {datasetA} {datasetB}",
         #Command="python /mnt/code/scripts/merge-data.py {.inputs.data_patha} {.inputs.data_pathb}",
         #Command="python /mnt/code/scripts/merge-data.py {data_patha} {data_pathb}",
         #Command="python /mnt/code/scripts/merge-data.py "/mnt/code/data/datasetA.csv" "/mnt/code/data/datasetB.csv""
