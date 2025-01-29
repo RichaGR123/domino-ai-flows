@@ -8,6 +8,7 @@ import sys
 
 datasetA_path = sys.argv[1]
 print("this is system argument A",datasetA_path)
+
 #print("these are all args", sys.argv[0],sys.argv[1])
 
 #datasetB_path = sys.argv[1]
