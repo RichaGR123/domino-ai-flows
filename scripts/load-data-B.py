@@ -6,7 +6,7 @@ import sys
 #input_name = "data_path"
 #input_location = f"/workflow/inputs/{input_name}"
 
-datasetB_path = sys.argv[2]
+datasetB_path = sys.argv[1]
 
 with open(datasetB_path, "r") as file:
     input_csv = file.read()
