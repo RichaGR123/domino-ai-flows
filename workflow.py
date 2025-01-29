@@ -108,7 +108,9 @@ def training_workflow() -> FlyteFile:
     #data_load_B = data_load_taskB(data_pathb=data_pathb)
     
      # Run the data Merge task
-    data_merge_results = data_merge_task(datasetA=data_load_A, datasetB=data_load_B)
+    #data_merge_results = data_merge_task(datasetA=data_load_A, datasetB=data_load_B)
+    data_merge_results = data_merge_task(datasetA=data_load_A.outputs["datasetA"], datasetB=data_load_B.outputs["datasetB"])
+    
     
     # Run the data preparation task
     #data_prep_results = data_prep_task(data_path=data_path)
