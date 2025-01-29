@@ -16,8 +16,12 @@ data_load_taskA = DominoJobTask(
     hardware_tier_name="Small",
     
     inputs={
-        "data_patha": FlyteFile["csv"],
+        "data_patha": str,
     },
+    
+    #inputs={
+        #"data_patha": FlyteFile["csv"],
+    #},
     outputs={"datasetA": FlyteFile["csv"]},
     use_latest=True
 )
@@ -31,8 +35,12 @@ data_load_taskB = DominoJobTask(
     hardware_tier_name="Small",
     
     inputs={
-        "data_pathb": FlyteFile["csv"],
+        "data_pathb": str,
     },
+    
+    #inputs={
+        #"data_pathb": FlyteFile["csv"],
+    #},
     outputs={"datasetB": FlyteFile["csv"]},
     use_latest=True
 )
@@ -47,14 +55,21 @@ data_merge_task = DominoJobTask(
     ),
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
-    inputs={
-        "data_patha": str,
-        "data_pathb": str,
-    },
+    
+    #inputs={
+        #"data_patha": str,
+        #"data_pathb": str,
+    #},
+    
     #inputs={
         #"data_patha": FlyteFile["csv"],
         #"data_pathb": FlyteFile["csv"],
     #},
+     inputs={
+        "datasetA": FlyteFile["csv"],
+        "datasetB": FlyteFile["csv"],
+    },
+    
     outputs={"merged_data": FlyteFile["csv"]},
     use_latest=True
 )
@@ -62,7 +77,7 @@ data_merge_task = DominoJobTask(
 
 data_prep_task = DominoJobTask(
     name="prepare_data",
-    domino_job_config=DominoJobConfig(Command="python /mnt/code/scripts/process-data.py"),
+    domino_job_config=DominoJobConfig(Command="python /mnt/code/scripts/process-data.py {merged_data}"),
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
     #inputs={"data_path": str},
@@ -76,7 +91,7 @@ data_prep_task = DominoJobTask(
 
 training_task = DominoJobTask(
     name="train_model",
-    domino_job_config=DominoJobConfig(Command="python /mnt/code/scripts/train-model.py"),
+    domino_job_config=DominoJobConfig(Command="python /mnt/code/scripts/train-model.py {processed_data}"),
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
     inputs={
