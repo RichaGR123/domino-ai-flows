@@ -10,8 +10,8 @@ from flytekit.types.file import FlyteFile
 data_load_taskA = DominoJobTask(
     name='Load_Data_A',
     domino_job_config=DominoJobConfig(
-         #Command='python /mnt/code/scripts/load-data-A.py {data_patha}',
-         Command='python /mnt/code/scripts/load-data-A.py {sys.argv[1]}',
+         Command='python /mnt/code/scripts/load-data-A.py {data_patha}',
+         #Command='python /mnt/code/scripts/load-data-A.py {sys.argv[1]}',
          #Command='python /mnt/code/scripts/load-data-A.py /mnt/code/data/datasetA.csv',
     ),
     environment_name="Domino Standard Environment Py3.11 R4.4",
@@ -33,7 +33,8 @@ data_load_taskA = DominoJobTask(
 data_load_taskB = DominoJobTask(
     name='Load_Data_B',
     domino_job_config=DominoJobConfig(
-         Command='python /mnt/code/scripts/load-data-B.py {sys.argv[1]}',
+        Command='python /mnt/code/scripts/load-data-B.py {data_pathb}',
+        #Command='python /mnt/code/scripts/load-data-B.py {sys.argv[1]}',
     ),
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
