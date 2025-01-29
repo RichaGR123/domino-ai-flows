@@ -3,14 +3,14 @@ import sys
 import pandas as pd
 
 # Read inputs from command-line arguments
-#datasetA_path = sys.argv[1]
-#datasetB_path = sys.argv[2]
+datasetA_path = sys.argv[1]
+datasetB_path = sys.argv[2]
 
 #datasetA_path = "/mnt/code/outputs/datasetA"
 #datasetB_path = "/mnt/code/outputs/datasetB"
 
-datasetA_path = "/workflow/outputs/datasetA.csv"
-datasetB_path = "/workflow/outputs/datasetB.csv"
+#datasetA_path = "/workflow/outputs/datasetA.csv"
+#datasetB_path = "/workflow/outputs/datasetB.csv"
 
 # Load data
 #print(f"Loading dataset A from: {datasetA_path}")
