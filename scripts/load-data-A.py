@@ -28,5 +28,6 @@ df = pd.read_csv(datasetA_path)
 
 
 # Write to Flow output
-df.to_csv('/workflow/outputs/datasetA.csv', index=False)
 
+#df.to_csv('/workflow/outputs/datasetA.csv', index=False)
+df.to_csv('/mnt/code/outputs/datasetA.csv', index=False)
