@@ -8,9 +8,9 @@ from flytekit.types.file import FlyteFile
 # Define the Domino tasks
 
 data_load_taskA = DominoJobTask(
-    name='Load_Data_A'
+    name='Load_Data_A',
     domino_job_config=DominoJobConfig(
-         Command='python /mnt/code/scripts/load-data-A.py',,
+         Command='python /mnt/code/scripts/load-data-A.py',
     ),
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
@@ -23,9 +23,9 @@ data_load_taskA = DominoJobTask(
 )
 
 data_load_taskB = DominoJobTask(
-    name='Load_Data_B'
+    name='Load_Data_B',
     domino_job_config=DominoJobConfig(
-         Command='python /mnt/code/scripts/load-data-B.py',,
+         Command='python /mnt/code/scripts/load-data-B.py',
     ),
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
