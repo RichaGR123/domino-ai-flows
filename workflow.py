@@ -27,7 +27,7 @@ data_load_taskA = DominoJobTask(
 data_load_taskB = DominoJobTask(
     name='Load_Data_B',
     domino_job_config=DominoJobConfig(
-         Command=f'python /mnt/code/scripts/load-data-B.py {data_pathb}',
+         Command='python /mnt/code/scripts/load-data-B.py {data_pathb}',
     ),
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
