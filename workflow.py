@@ -33,15 +33,16 @@ data_load_taskA = DominoJobTask(
 data_load_taskB = DominoJobTask(
     name='Load_Data_B',
     domino_job_config=DominoJobConfig(
-        Command='python /mnt/code/scripts/load-data-B.py {data_pathb}',
+        #Command='python /mnt/code/scripts/load-data-B.py {data_pathb}',
         #Command='python /mnt/code/scripts/load-data-B.py {sys.argv[1]}',
+        Command=f'python /mnt/code/scripts/load-data-B.py /mnt/code/data/datasetB.csv',
     ),
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
     
-    inputs={
-        "data_pathb": str,
-    },
+#     inputs={
+#         "data_pathb": str,
+#     },
     
     outputs={"datasetB": FlyteFile["csv"]},
     use_latest=True
@@ -97,13 +98,14 @@ training_task = DominoJobTask(
 #def training_workflow(data_patha: str, data_pathb: str) -> FlyteFile:
 
 #uncomment below while hardcoding
-def training_workflow(data_pathb: str) -> FlyteFile: 
+def training_workflow() -> FlyteFile: 
     
     #data_load_taskA
     #data_load_A = data_load_taskA(data_patha=data_patha)
     #uncomment below while hardcoding
     data_load_A = data_load_taskA()
-    data_load_B = data_load_taskB(data_pathb=data_pathb)
+    data_load_B = data_load_taskB()
+    #data_load_B = data_load_taskB(data_pathb=data_pathb)
     
      # Run the data Merge task
     data_merge_results = data_merge_task(datasetA=data_load_A, datasetB=data_load_B)
