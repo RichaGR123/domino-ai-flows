@@ -17,11 +17,14 @@ print("this is system argument A",datasetA_path)
 #datasetA_path = "/mnt/code/data/datasetA.csv"
 #print("This is hard coded path",datasetA_path)
 
-with open(datasetA_path, "r") as file:
-    input_csv = file.read()
+## hardcoding error file long
+# with open(datasetA_path, "r") as file:
+#     input_csv = file.read()
+## Read input csv to dataframe
+#df = pd.read_csv(input_csv) 
 
-# Read input csv to dataframe
-df = pd.read_csv(input_csv) 
+    
+df = pd.read_csv(datasetA_path)
 
 
 # Write to Flow output

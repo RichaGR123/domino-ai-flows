@@ -8,11 +8,13 @@ import sys
 
 datasetB_path = sys.argv[1]
 
-with open(datasetB_path, "r") as file:
-    input_csv = file.read()
+# with open(datasetB_path, "r") as file:
+#     input_csv = file.read()
 
 # Read input csv to dataframe
-df = pd.read_csv(input_csv) 
+# df = pd.read_csv(input_csv) 
+
+df = pd.read_csv(datasetB_path)
 
 
 # Write to Flow output
