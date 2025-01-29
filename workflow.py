@@ -10,14 +10,15 @@ from flytekit.types.file import FlyteFile
 data_load_taskA = DominoJobTask(
     name='Load_Data_A',
     domino_job_config=DominoJobConfig(
-         Command=f'python /mnt/code/scripts/load-data-A.py {data_patha}',
+         #Command='python /mnt/code/scripts/load-data-A.py {data_patha}',
+        Command='python /mnt/code/scripts/load-data-A.py /mnt/code/data/datasetA.csv',
     ),
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
     
-    inputs={
-        "data_patha": str,
-    },
+    #inputs={
+        #"data_patha": str,
+    #},
     
     outputs={"datasetA": FlyteFile["csv"]},
     use_latest=True
@@ -86,11 +87,13 @@ training_task = DominoJobTask(
 
 # Define the workflow
 @workflow
-def training_workflow(data_patha: str, data_pathb: str) -> FlyteFile:
-    
+#def training_workflow(data_patha: str, data_pathb: str) -> FlyteFile:
+def training_workflow(data_pathb: str) -> FlyteFile:   
     #data_load_taskA
-    data_load_A = data_load_taskA(data_patha=data_patha)
+    #data_load_A = data_load_taskA(data_patha=data_patha)
+    data_load_A = data_load_taskA()
     data_load_B = data_load_taskB(data_pathb=data_pathb)
+    
      # Run the data Merge task
     data_merge_results = data_merge_task(datasetA=data_load_A, datasetB=data_load_B)
     
