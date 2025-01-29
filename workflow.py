@@ -10,13 +10,15 @@ from flytekit.types.file import FlyteFile
 data_load_taskA = DominoJobTask(
     name='Load_Data_A',
     domino_job_config=DominoJobConfig(
-        Command="python /mnt/code/scripts/load-data-A.py {data_patha}".format(data_patha="path/to/your/data.csv"),
+         Command='python /mnt/code/scripts/load-data-A.py {data_patha}',
     ),
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
+    
     inputs={
-        "data_patha": str,  # Ensure this is actually passed in runtime
+        "data_patha": str,
     },
+    
     outputs={"datasetA": FlyteFile["csv"]},
     use_latest=True
 )
