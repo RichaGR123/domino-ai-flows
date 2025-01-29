@@ -22,9 +22,9 @@ data_load_taskA = DominoJobTask(
         #"data_patha": str,
     #},
     
-    inputs={
-        "data_patha": str,
-    },
+#     inputs={
+#         "data_patha": str,
+#     },
     
     outputs={"datasetA": FlyteFile["csv"]},
     use_latest=True
