@@ -14,10 +14,12 @@ datasetB_path = "/workflow/outputs/datasetB.csv"
 
 # Load data
 #print(f"Loading dataset A from: {datasetA_path}")
-a = pd.read_csv(datasetA_path, index_col='Id')
+#a = pd.read_csv(datasetA_path, index_col='Id')
+a = pd.read_csv(datasetA_path)
 
 #print(f"Loading dataset B from: {datasetB_path}")
-b = pd.read_csv(datasetB_path, index_col='Id')
+#b = pd.read_csv(datasetB_path, index_col='Id')
+b = pd.read_csv(datasetB_path)
 
 #print(f"Received dataset A path: {datasetA_path}")
 #print(f"Received dataset B path: {datasetB_path}")
