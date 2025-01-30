@@ -30,4 +30,6 @@ df = pd.read_csv(datasetA_path)
 # Write to Flow output
 
 df.to_csv('/workflow/outputs/datasetA.csv', index=False)
+print("datasetA.csv saved successfully.")
+print("Files in /workflow/outputs:", os.listdir('/workflow/outputs'))
 #df.to_csv('/mnt/code/outputs/datasetA.csv', index=False)
