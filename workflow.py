@@ -51,8 +51,8 @@ data_load_taskB = DominoJobTask(
 data_merge_task = DominoJobTask(
     name="merge_data",
     domino_job_config=DominoJobConfig(
-         Command="python /mnt/code/scripts/merge-data.py {datasetA} {datasetB}",
-#         Command=f"python /mnt/code/scripts/merge-data.py /workflow/outputs/datasetA.csv /workflow/outputs/datasetB.csv",
+         #Command="python /mnt/code/scripts/merge-data.py {datasetA} {datasetB}",
+        Command=f"python /mnt/code/scripts/merge-data.py /workflow/outputs/datasetA.csv /workflow/outputs/datasetB.csv",
     ),
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
@@ -110,9 +110,9 @@ def training_workflow() -> FlyteFile:
     
      # Run the data Merge task
     #data_merge_results = data_merge_task(datasetA=data_load_A, datasetB=data_load_B)
-    data_merge_results = data_merge_task(datasetA=data_load_A.outputs["datasetA"], datasetB=data_load_B.outputs["datasetB"])
+    #data_merge_results = data_merge_task(datasetA=data_load_A.outputs["datasetA"], datasetB=data_load_B.outputs["datasetB"])
     
-    #data_merge_results = data_merge_task()
+    data_merge_results = data_merge_task()
     
     
     # Run the data preparation task
