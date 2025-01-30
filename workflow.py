@@ -65,7 +65,7 @@ data_merge_task = DominoJobTask(
     outputs={"merged_data": FlyteFile["csv"]},
     use_latest=True,
     upstream=[data_load_taskA],
-    upstream=[data_load_taskA],
+    upstream=[data_load_taskB],
 )
 
 
