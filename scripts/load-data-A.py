@@ -29,7 +29,10 @@ df = pd.read_csv(datasetA_path)
 
 # Write to Flow output
 
-df.to_csv('/workflow/outputs/datasetA.csv', index=False)
-print("datasetA.csv saved successfully.")
-print("Files in /workflow/outputs:", os.listdir('/workflow/outputs'))
+os.makedirs('/mnt/data/', exist_ok=True)
+df.to_csv('/mnt/data/datasetOutputA.csv', index=False)
+print("datasetOutputA.csv saved successfully in /mnt/data/")
+#df.to_csv('/workflow/outputs/datasetA.csv', index=False)
+#print("datasetA.csv saved successfully.")
+#print("Files in /workflow/outputs:", os.listdir('/workflow/outputs'))
 #df.to_csv('/mnt/code/outputs/datasetA.csv', index=False)
