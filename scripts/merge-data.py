@@ -6,6 +6,9 @@ import pandas as pd
 datasetA_path = sys.argv[1]
 datasetB_path = sys.argv[2]
 
+print(f"Loading dataset A from: {datasetA_path}")
+print(f"Loading dataset A from: {datasetA_path}")
+
 #datasetA_path = "/mnt/code/outputs/datasetA"
 #datasetB_path = "/mnt/code/outputs/datasetB"
 
