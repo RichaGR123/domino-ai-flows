@@ -27,7 +27,7 @@ data_load_taskA = DominoJobTask(
 #     },
     
     outputs={"datasetA": FlyteFile["csv"]},
-    use_latest=True
+    use_latest=True,
 )
 
 data_load_taskB = DominoJobTask(
@@ -45,7 +45,7 @@ data_load_taskB = DominoJobTask(
 #     },
     
     outputs={"datasetB": FlyteFile["csv"]},
-    use_latest=True
+    use_latest=True,
 )
 
 data_merge_task = DominoJobTask(
@@ -63,9 +63,9 @@ data_merge_task = DominoJobTask(
 #     },
     
     outputs={"merged_data": FlyteFile["csv"]},
-    use_latest=True
-    upstream=[data_load_taskA]
-    upstream=[data_load_taskA]
+    use_latest=True,
+    upstream=[data_load_taskA],
+    upstream=[data_load_taskA],
 )
 
 
@@ -79,7 +79,7 @@ data_prep_task = DominoJobTask(
     },
     outputs={"processed_data": FlyteFile["csv"]},
    
-    use_latest=True
+    use_latest=True,
 )
 
 training_task = DominoJobTask(
@@ -93,7 +93,7 @@ training_task = DominoJobTask(
         "batch_size": int,
     },
     outputs={"model": FlyteFile},
-    use_latest=True
+    use_latest=True,
 )
 
 # Define the workflow
