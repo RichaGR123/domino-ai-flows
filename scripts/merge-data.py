@@ -3,6 +3,9 @@ import sys
 import pandas as pd
 
 # Read inputs from command-line arguments
+
+print("Files in /workflow/outputs:", os.listdir('/workflow/outputs'))
+
 datasetA_path = sys.argv[1]
 datasetB_path = sys.argv[2]
 
@@ -27,7 +30,7 @@ b = pd.read_csv(datasetB_path)
 #print(f"Received dataset A path: {datasetA_path}")
 #print(f"Received dataset B path: {datasetB_path}")
 
-print("Files in /workflow/outputs:", os.listdir('/workflow/outputs'))
+
 
 # Merge data
 print('Merging data...')
