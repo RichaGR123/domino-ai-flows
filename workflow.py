@@ -57,10 +57,10 @@ data_merge_task = DominoJobTask(
     environment_name="Domino Standard Environment Py3.11 R4.4",
     hardware_tier_name="Small",
     
-     inputs={
-        "datasetA": FlyteFile["csv"],
-        "datasetB": FlyteFile["csv"],
-    },
+#      inputs={
+#         "datasetA": FlyteFile["csv"],
+#         "datasetB": FlyteFile["csv"],
+#     },
     
     outputs={"merged_data": FlyteFile["csv"]},
     use_latest=True
