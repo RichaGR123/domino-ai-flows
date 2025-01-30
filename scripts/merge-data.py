@@ -27,6 +27,8 @@ b = pd.read_csv(datasetB_path)
 #print(f"Received dataset A path: {datasetA_path}")
 #print(f"Received dataset B path: {datasetB_path}")
 
+print("Files in /workflow/outputs:", os.listdir('/workflow/outputs'))
+
 # Merge data
 print('Merging data...')
 merged = pd.concat([a, b], axis=0).reset_index(drop=True)
