@@ -4,8 +4,8 @@ import pandas as pd
 
 # Read inputs from command-line arguments
 
-#print("Files in /workflow/outputs:", os.listdir('/workflow/outputs'))
-print("Files in /mnt/data:", os.listdir('/mnt/data/'))
+print("Files in /workflow/outputs:", os.listdir('/workflow/outputs'))
+#print("Files in /mnt/data:", os.listdir('/mnt/data/'))
 
 datasetA_path = sys.argv[1]
 datasetB_path = sys.argv[2]
@@ -50,8 +50,10 @@ merged = pd.concat([a, b], axis=0).reset_index(drop=True)
 #/mnt/data/merged_data.csv
 
 # Write output
-output_path = '/mnt/data/merged_data.csv'
-#output_path = '/workflow/outputs/merged_data.csv'
+#output_path = '/mnt/data/merged_data.csv'
+
+output_path = '/workflow/outputs/merged_data.csv'
+
 #output_path = '/mnt/code/outputs/merged_data.csv'
 merged.to_csv(output_path, index=False)
 #print(f"Merged data saved to: {output_path}")

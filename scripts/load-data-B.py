@@ -16,12 +16,12 @@ datasetB_path = sys.argv[1]
 
 df = pd.read_csv(datasetB_path)
 
-os.makedirs('/mnt/code/data/', exist_ok=True)
-df.to_csv('/mnt/code/data/datasetOutputB.csv', index=False)
-print("datasetOutputB.csv saved successfully in /mnt/code/data/")
+# os.makedirs('/mnt/code/data/', exist_ok=True)
+# df.to_csv('/mnt/code/data/datasetOutputB.csv', index=False)
+# print("datasetOutputB.csv saved successfully in /mnt/code/data/")
 
 # Write to Flow output
-# df.to_csv('/workflow/outputs/datasetB.csv', index=False)
-# print("datasetB.csv saved successfully.")
-# print("Files in /workflow/outputs:", os.listdir('/workflow/outputs'))
+df.to_csv('/workflow/outputs/datasetB.csv', index=False)
+print("datasetB.csv saved successfully.")
+print("Files in /workflow/outputs:", os.listdir('/workflow/outputs'))
 #df.to_csv('/mnt/code/outputs/datasetB.csv', index=False)
